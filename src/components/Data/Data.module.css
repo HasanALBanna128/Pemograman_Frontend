@@ -1,0 +1,51 @@
+.dataContainer {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .dataTitle {
+    font-size: 48px; 
+    color: #00ffd0;
+    margin-bottom: 20px;
+  }
+  
+  .dataSubtitle {
+    font-size: 24px; 
+    color: #ccc;
+    margin-bottom: 40px;
+  }
+  
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .card {
+    background-color: #0d0d0d;
+    color: #a0f0e0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 255, 208, 0.3);
+    width: 300px; 
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .cardTitle {
+    font-size: 22px; 
+    color: #00ffd0;
+    margin-bottom: 15px;
+  }
+  
+  .cardContent {
+    font-size: 20px; 
+    color: #a0f0e0;
+  }
+  
