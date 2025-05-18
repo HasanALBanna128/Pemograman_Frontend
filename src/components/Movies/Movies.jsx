@@ -1,0 +1,48 @@
+import React from "react";
+import Movie from "../Movie/Movie.jsx";
+import styles from "../Movie/Movie.module.css";
+
+const data = [
+    { id: 1, title: "Superman: Legacy", year: "2025", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUDeB4IlvvmwmlaZQITHSlXs9bD5wPO_pJ7efZYKVn4EPwtorfHqEVtEDmdDD8iLj8bAY&usqp=CAU" },
+    { id: 2, title: "Dark", year: "2021", poster: "https://image.tmdb.org/t/p/w300/2lECpi35Hnbpa4y46JX0aY3AWTy.jpg" },
+    { id: 3, title: "Turning Red", year: "2022", poster: "https://image.tmdb.org/t/p/w300/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg" },
+    { id: 4, title: "The Batman", year: "2022", poster: "https://image.tmdb.org/t/p/w300/74xTEgt7R36Fpooo50r9T25onhq.jpg" },
+    { id: 5, title: "Encanto", year: "2021", poster: "https://image.tmdb.org/t/p/w300/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg" },
+    { id: 6, title: "Avengers: Endgame", year: "2019", poster: "https://image.tmdb.org/t/p/w300/or06FN3Dka5tukK1e9sl16pB3iy.jpg" },
+    { id: 7, title: "Spider-Man: No Way Home", year: "2021", poster: "https://image.tmdb.org/t/p/w300/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" },
+    { id: 8, title: "Interstellar", year: "2014", poster: "https://upload.wikimedia.org/wikipedia/id/b/bc/Interstellar_film_poster.jpg" },
+    { id: 9, title: "Inception", year: "2010", poster: "https://image.tmdb.org/t/p/w300/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg" },
+    { id: 10, title: "Dune", year: "2021", poster: "https://image.tmdb.org/t/p/w300/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" },
+    { id: 11, title: "The Flash", year: "2023", poster: "https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg" },
+    { id: 12, title: "Oppenheimer", year: "2023", poster: "https://image.tmdb.org/t/p/w300/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" },
+    { id: 13, title: "The Marvels", year: "2023", poster: "https://image.tmdb.org/t/p/w300/9GBhzXMFjgcZ3FdR9w3bUMMTps5.jpg" },
+    { id: 14, title: "Blue Beetle", year: "2023", poster: "https://c8.alamy.com/comp/2R6RR7D/blue-beetle-movie-poster-2R6RR7D.jpg" },
+    { id: 15, title: "Black Panther", year: "2018", poster: "https://image.tmdb.org/t/p/w300/uxzzxijgPIY7slzFvMotPv8wjKA.jpg" },
+    { id: 16, title: "Iron Man", year: "2008", poster: "https://image.tmdb.org/t/p/w300/78lPtwv72eTNqFW9COBYI0dWDJa.jpg" },
+    { id: 17, title: "Doctor Strange", year: "2016", poster: "https://image.tmdb.org/t/p/w300/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg" },
+    { id: 18, title: "Black Widow", year: "2021", poster: "https://image.tmdb.org/t/p/w300/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg" },
+    { id: 19, title: "The Matrix", year: "1999", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTV574g7Hm8IvZfeAN9h2Jvyoclu4ubM-41g&s" },
+    { id: 20, title: "John Wick 4", year: "2023", poster: "https://image.tmdb.org/t/p/w300/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" },
+    { id: 21, title: "The Equalizer 3", year: "2023", poster: "https://image.tmdb.org/t/p/w300/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" },
+    { id: 22, title: "Guardians of the Galaxy Vol. 3", year: "2023", poster: "https://image.tmdb.org/t/p/w300/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg" },
+    { id: 23, title: "The Hunger Games", year: "2012", poster: "https://m.media-amazon.com/images/I/71WSzS6zvCL._AC_UF1000,1000_QL80_.jpg" },
+    { id: 24, title: "The Maze Runner", year: "2014", poster: "https://image.tmdb.org/t/p/w300/ode14q7WtDugFDp78fo9lCsmay9.jpg" },
+];
+
+
+function Movies() {
+    return (
+        <div className={styles.container}>
+            <section className={styles.movies}>
+                <h2 className={styles.movies_title}>🎬 Now Playing</h2>
+                <div className={styles.movie_container}>
+                    {data.map((movie) => (
+                        <Movie key={movie.id} movie={movie} />
+                    ))}
+                </div>
+            </section>
+        </div>
+    );
+}
+
+export default Movies;
