@@ -1,0 +1,43 @@
+.homeSection {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #0d0d0d;
+    color: white;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #f5a623;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.description {
+    font-size: 1.5rem;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+.highlight {
+    color: #f5a623;
+    font-weight: bold;
+}
+
+.ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background-color: #f5a623;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ctaButton:hover {
+    background-color: #d48e19;
+    transform: translateY(-2px);
+}
