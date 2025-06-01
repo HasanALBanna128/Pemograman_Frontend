@@ -1,15 +1,13 @@
-
-import styles from "./Footer.module.css";
+import React from "react";
+import { Container, Title, Author } from "./Footer.styled";
 
 function Footer() {
-    return (
-        <div className={styles.container}>
-            <footer className={styles.footer}>
-                <h2 className={styles.footer__title}>Movie App</h2>
-                <p className={styles.footer__author}>Created by Hans</p>
-            </footer>
-        </div>
-    );
+  return (
+    <Container>
+      <Title>Movie App</Title>
+      <Author>Created by Hasan Al Banna</Author>
+    </Container>
+  );
 }
 
 export default Footer;

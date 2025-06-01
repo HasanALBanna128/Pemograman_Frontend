@@ -1,6 +1,5 @@
 import React from "react";
 import Movie from "../Movie/Movie.jsx";
-import styles from "../Movie/Movie.module.css";
 
 const data = [
     { id: 1, title: "Superman: Legacy", year: "2025", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUDeB4IlvvmwmlaZQITHSlXs9bD5wPO_pJ7efZYKVn4EPwtorfHqEVtEDmdDD8iLj8bAY&usqp=CAU" },
@@ -29,20 +28,24 @@ const data = [
     { id: 24, title: "The Maze Runner", year: "2014", poster: "https://image.tmdb.org/t/p/w300/ode14q7WtDugFDp78fo9lCsmay9.jpg" },
 ];
 
-
 function Movies() {
-    return (
-        <div className={styles.container}>
-            <section className={styles.movies}>
-                <h2 className={styles.movies_title}>🎬 Now Playing</h2>
-                <div className={styles.movie_container}>
-                    {data.map((movie) => (
-                        <Movie key={movie.id} movie={movie} />
-                    ))}
-                </div>
-            </section>
-        </div>
-    );
+  return (
+    <section>
+      <h2 style={{ fontSize: "2rem", color: "#ffcc00", textAlign: "center", marginBottom: "2rem" }}>
+        🎬 Now Playing
+      </h2>
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(8, 1fr)", 
+        gap: "16px", 
+        padding: "0 20px" 
+      }}>
+        {data.map((movie) => (
+          <Movie key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default Movies;

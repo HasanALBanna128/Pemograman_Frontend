@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import "./app.css";
 
-// Layout
 import MainLayout from "./Layouts/MainLayout";
 
 // Pages
@@ -13,30 +12,32 @@ import NowPlayingMovie from "./Pages/Movie/NowPlaying";
 import TopRatedMovie from "./Pages/Movie/TopRated";
 import Hero from "./components/Hero/Hero";
 import Movies from "./components/Movies/Movies";
+import Counter from "./components/Counter/Counter"; 
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<MainLayout />}>
-                    <Route
-                        index
-                        element={
-                            <>
-                                <Hero />
-                                <Home />
-                                <Movies />
-                            </>
-                        }
-                    />
-                    <Route path="movie/create" element={<CreateMovie />} />
-                    <Route path="movie/popular" element={<PopularMovie />} />
-                    <Route path="movie/nowplaying" element={<NowPlayingMovie />} />
-                    <Route path="movie/toprated" element={<TopRatedMovie />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route
+            index
+            element={
+              <>
+                <Hero />
+                <Home />
+                <Movies />
+              </>
+            }
+          />
+          <Route path="movie/create" element={<CreateMovie />} />
+          <Route path="movie/popular" element={<PopularMovie />} />
+          <Route path="movie/nowplaying" element={<NowPlayingMovie />} />
+          <Route path="movie/toprated" element={<TopRatedMovie />} />
+          <Route path="counter" element={<Counter />} /> 
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

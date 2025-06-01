@@ -1,30 +1,53 @@
-import styles from "./Hero.module.css";
+import { useEffect, useState } from "react";
+import {
+  Container,
+  HeroSection,
+  HeroLeft,
+  HeroRight,
+  HeroTitle,
+  HeroGenre,
+  HeroDescription,
+  HeroImage,
+  HeroButton,
+} from "./Hero.styled";
 
 function Hero() {
-    return (
-        <div className={styles.container}>
-            <section className={styles.hero}>
-                <div className={styles.hero__left}>
-                    <h2 className={styles.hero__title}>Spider-man 3</h2>
-                    <h3 className={styles.hero__genre}>
-                        Genre: Thriller, Drama, Romance
-                    </h3>
-                    <p className={styles.hero__description}>
-                        Sebuah cairan hitam aneh dari dunia lain melekat ke tubuh Peter Parker dan menyebabkan kekacauan batinnya.
-                         Pada saat bersamaan, muncul sosok penjahat baru yang mengancam warga New York
-                    </p>
-                    <button className={styles.hero__button}>Watch</button>
-                </div>
-                <div className={styles.hero__right}>
-                    <img
-                        className={styles.hero__image}
-                        src="https://material.asset.catchplay.com/SNY-ID-002-A1040/artworks/posters/SNY-ID-002-A1040-P1200.jpg?hash=1747398119"
-                        alt="placeholder"
-                    />
-                </div>
-            </section>
-        </div>
-    );
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    async function fetchMovie() {
+      try {
+        const url = "https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590";
+        const response = await fetch(url);
+        const data = await response.json();
+        setMovie(data);
+      } catch (error) {
+        console.error("Error fetching movie:", error);
+      }
+    }
+
+    fetchMovie();
+  }, []);
+
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <Container>
+      <HeroSection>
+        <HeroLeft>
+          <HeroTitle>{movie.Title}</HeroTitle>
+          <HeroGenre>Genre: {movie.Genre}</HeroGenre>
+          <HeroDescription>{movie.Plot}</HeroDescription>
+          <HeroButton>Watch</HeroButton>
+        </HeroLeft>
+        <HeroRight>
+          <HeroImage src={movie.Poster} alt={movie.Title} />
+        </HeroRight>
+      </HeroSection>
+    </Container>
+  );
 }
 
 export default Hero;
