@@ -10,8 +10,11 @@ function Home() {
                 top-rated films, and <span className={styles.highlight}>trending titles</span> right here.
             </p>
             <button className={styles.ctaButton}>Browse Now</button>
+            
         </section>
+        
     );
+    
 }
 
 export default Home;
