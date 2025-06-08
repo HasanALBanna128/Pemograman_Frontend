@@ -16,7 +16,7 @@ form div {
 form label {
   width: 120px;
   font-weight: 500;
-  color: #f5c518;
+  color: #f5a623;
 }
 
 form input,
@@ -31,14 +31,14 @@ form select {
 
 form input:focus,
 form select:focus {
-  outline: 2px solid #f5c518;
+  outline: 2px solid #f5a623;
 }
 
 form button[type="submit"] {
   align-self: flex-start;
   margin-top: 1rem;
   padding: 0.6rem 1.5rem;
-  background-color: #f5c518;
+  background-color: #f5a623;
   color: black;
   font-weight: bold;
   border: none;
@@ -48,7 +48,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-  background-color: #e1b313;
+  background-color: #f5a623;
 }
 
 form p {
