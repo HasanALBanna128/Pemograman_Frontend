@@ -1,20 +1,34 @@
-import React from 'react';
-import styles from './Home.module.css'; 
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Movies from "../../components/Movies/Movies";
 
 function Home() {
-    return (
-        <section className={styles.homeSection}>
-            <h1 className={styles.title}>Welcome to Movie App</h1>
-            <p className={styles.description}>
-                Discover the <span className={styles.highlight}>latest movies</span>, 
-                top-rated films, and <span className={styles.highlight}>trending titles</span> right here.
-            </p>
-            <button className={styles.ctaButton}>Browse Now</button>
-            
-        </section>
-        
-    );
-    
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchNowPlaying() {
+      try {
+        const API_ACCESS_TOKEN = import.meta.env.VITE_API_ACCESS_TOKEN;
+
+        const response = await axios.get(
+          'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1',
+          {
+            headers: {
+              accept: 'application/json',
+              Authorization: `Bearer ${API_ACCESS_TOKEN}`,
+            },
+          }
+        );
+
+        setMovies(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchNowPlaying();
+  }, []);
+
 }
 
 export default Home;

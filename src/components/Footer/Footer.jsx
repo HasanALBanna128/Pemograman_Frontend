@@ -5,7 +5,7 @@ function Footer() {
   return (
     <Container>
       <Title>Movie App</Title>
-      <Author>Created by Hasan Al Banna</Author>
+      <Author>Created by Hans</Author>
     </Container>
   );
 }

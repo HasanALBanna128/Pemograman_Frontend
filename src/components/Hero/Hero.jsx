@@ -15,35 +15,50 @@ function Hero() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    async function fetchMovie() {
+    async function fetchTrendingMovie() {
       try {
-        const url = "https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590";
-        const response = await fetch(url);
+        const API_ACCESS_TOKEN = import.meta.env.VITE_API_ACCESS_TOKEN;
+
+        const response = await fetch(
+          "https://api.themoviedb.org/3/trending/movie/week",
+          {
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${API_ACCESS_TOKEN}`,
+            },
+          }
+        );
+
         const data = await response.json();
-        setMovie(data);
+
+        setMovie(data.results[0]);
       } catch (error) {
-        console.error("Error fetching movie:", error);
+        console.error("Error fetching trending movie:", error);
       }
     }
 
-    fetchMovie();
+    fetchTrendingMovie();
   }, []);
 
   if (!movie) {
     return <div>Loading...</div>;
   }
 
+  const imageUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "https://via.placeholder.com/500x750?text=No+Image";
+
   return (
     <Container>
       <HeroSection>
         <HeroLeft>
-          <HeroTitle>{movie.Title}</HeroTitle>
-          <HeroGenre>Genre: {movie.Genre}</HeroGenre>
-          <HeroDescription>{movie.Plot}</HeroDescription>
+          <HeroTitle>{movie.title}</HeroTitle>
+          <HeroGenre>Release Date: {movie.release_date}</HeroGenre>
+          <HeroDescription>{movie.overview}</HeroDescription>
           <HeroButton>Watch</HeroButton>
         </HeroLeft>
         <HeroRight>
-          <HeroImage src={movie.Poster} alt={movie.Title} />
+          <HeroImage src={imageUrl} alt={movie.title} />
         </HeroRight>
       </HeroSection>
     </Container>
