@@ -1,7 +1,14 @@
-import { useState } from "react";
-import { nanoid } from "nanoid";
+// src/components/AddMovieForm.jsx
 
-function AddMovieForm({ movies, setMovies }) {
+import { useState, useContext } from "react";
+import { nanoid } from "nanoid";
+import { useNavigate } from "react-router-dom";
+import MoviesContext from "../context/MoviesContext";
+
+function AddMovieForm() {
+  const { movies, setMovies } = useContext(MoviesContext);
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: "",
     date: "",
@@ -22,7 +29,6 @@ function AddMovieForm({ movies, setMovies }) {
       [name]: value,
     });
 
-    // Reset error saat user mulai mengetik
     if (errors[name]) {
       setErrors({ ...errors, [name]: false });
     }
@@ -50,6 +56,7 @@ function AddMovieForm({ movies, setMovies }) {
 
     setMovies([...movies, newMovie]);
     resetForm();
+    navigate("/");
   }
 
   function resetForm() {

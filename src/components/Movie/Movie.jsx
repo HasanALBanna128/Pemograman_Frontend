@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, Poster, Title, Date } from "./Movie.styled";
 
 function Movie({ movie }) {
@@ -9,7 +10,9 @@ function Movie({ movie }) {
   return (
     <Card>
       <Poster src={imageUrl} alt={movie.title} />
-      <Title>{movie.title}</Title>
+      <Link to={`/movie/${movie.id}`}>
+        <Title>{movie.title}</Title>
+      </Link>
       <Date>{movie.release_date}</Date>
     </Card>
   );
