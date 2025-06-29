@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+// src/Pages/Movie/TopRated.jsx
+
+import { useEffect, useContext } from "react";
 import axios from "axios";
 import Movies from "../../components/Movies/Movies";
+import MoviesContext from "../../context/MoviesContext";
 
-function NowPlayingMovie() {
-  const [movies, setMovies] = useState([]);
+function TopRatedMovie() {
+  const { setMovies } = useContext(MoviesContext);
 
   useEffect(() => {
-    async function fetchNowPlayingMovie() {
+    async function fetchTopRatedMovies() {
       try {
         const API_ACCESS_TOKEN = import.meta.env.VITE_API_ACCESS_TOKEN;
-
         const response = await axios.get(
-          "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+          'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
           {
             headers: {
-              accept: "application/json",
+              accept: 'application/json',
               Authorization: `Bearer ${API_ACCESS_TOKEN}`,
             },
           }
@@ -26,10 +28,10 @@ function NowPlayingMovie() {
       }
     }
 
-    fetchNowPlayingMovie();
-  }, []);
+    fetchTopRatedMovies();
+  }, [setMovies]);
 
-  return <Movies movies={movies} title="Top Rated" />;
+  return <Movies title="Top Rated Movies" />;
 }
 
-export default NowPlayingMovie;
+export default TopRatedMovie;

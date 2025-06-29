@@ -1,6 +1,12 @@
-import Movie from "../Movie/Movie.jsx";
+// src/components/Movies/Movies.jsx
 
-function Movies({ movies = [], title = "Movies" }) {
+import { useContext } from "react";
+import Movie from "../Movie/Movie.jsx";
+import MoviesContext from "../../context/MoviesContext";
+
+function Movies({ title = "Movies" }) {
+  const { movies } = useContext(MoviesContext);
+
   return (
     <section>
       <h2
@@ -21,7 +27,7 @@ function Movies({ movies = [], title = "Movies" }) {
           padding: "0 20px",
         }}
       >
-        {movies.length > 0 ? (
+        {movies && movies.length > 0 ? (
           movies.map((movie) => <Movie key={movie.id} movie={movie} />)
         ) : (
           <p>Loading movies...</p>
