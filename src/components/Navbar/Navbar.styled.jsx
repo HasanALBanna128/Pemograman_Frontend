@@ -39,6 +39,7 @@ export const NavList = styled.ul`
     align-items: flex-start;
     padding: 1rem 0;
     gap: 1rem;
+    background-color: #0f0f0fef;
   }
 `;
 
