@@ -1,0 +1,129 @@
+.heading {
+  color: #f7d03c;
+  text-align: center;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.typeButton {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #1c1c1c;
+  color: #fff;
+  border: 2px solid #f7d03c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.typeButton:hover {
+  background: #ef5350;
+  transform: scale(0.95);
+}
+
+.activeButton {
+  background: #ef5350;
+}
+
+.loading {
+  text-align: center;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+.card {
+  background: linear-gradient(145deg, #222, #333);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  color: #eee;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);
+}
+
+.image {
+  max-width: 120px;
+  margin-bottom: 0.5rem;
+}
+
+.addButton,
+.removeButton {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s, border-color 0.3s;
+}
+
+.addButton {
+  background: #ef5350;
+  color: #fff;
+  border: none;
+}
+
+.addButton:hover {
+  background: #d32f2f;
+  transform: scale(0.95);
+}
+
+.removeButton {
+  background: #1c1c1c;
+  color: #fff;
+  border: 2px solid #f7d03c;
+}
+
+.removeButton:hover {
+  border-color: #ef5350;
+  transform: scale(0.95);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardLink:hover h3 {
+  color: #f7d03c;
+}
+
+.searchInput {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid #f7d03c;
+  width: 50%;
+  max-width: 300px;
+}
+
+.backButton {
+  margin-top: 1rem;
+  background: #ef5350;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.backButton:hover {
+  background: #d32f2f;
+}
